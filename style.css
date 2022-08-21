@@ -97,10 +97,11 @@ button.selected {
 	height: 100px;
 	padding: 0px;
 	border-width: 0px;
-	border-radius: 50%;
+	background-color: transparent;
 	cursor: pointer;
 }
 
 .color-palette::-webkit-color-swatch {
+	border: none;
 	border-radius: 50%;
 }
