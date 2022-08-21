@@ -1,5 +1,7 @@
 let mouseDown = 0;
 let color = "black";
+const sliderValue = document.querySelector("p");
+const slider = document.querySelector(".slider");
 document.body.onmousedown = () => (mouseDown = 1);
 document.body.onmouseup = () => (mouseDown = 0);
 addGridListeners();
@@ -8,10 +10,10 @@ addButtonSelectionEffect();
 addSliderListener();
 
 function addSliderListener() {
-	document.querySelector(".slider").addEventListener("input", (e) => {
-		
+	slider.addEventListener("input", (e) => {
+		sliderValue.innerText = slider.value + " x " + slider.value;
 	});
-	document.querySelector(".slider").addEventListener("mouseup", (e) => {
+	slider.addEventListener("mouseup", (e) => {
 		changeGridSize(Math.pow(e.target.value, 2));
 		addGridListeners();
 	});
