@@ -1,5 +1,6 @@
 let mouseDown = 0;
 let color = "black";
+let rainbowMode = false;
 const sliderValue = document.querySelector("p");
 const slider = document.querySelector(".slider");
 document.body.onmousedown = () => (mouseDown = 1);
@@ -8,6 +9,12 @@ addGridListeners();
 addButtonListeners();
 addButtonSelectionEffect();
 addSliderListener();
+addColorPaletteListener();
+
+function addColorPaletteListener() {
+	let colorPalette = document.querySelector(".color-palette");
+	colorPalette.addEventListener("input", (e) => (color = e.target.value));
+}
 
 function addSliderListener() {
 	slider.addEventListener("input", (e) => {
@@ -38,8 +45,15 @@ function changeGridSize(selectedSize) {
 }
 
 function addButtonListeners() {
-	document.querySelector("#color-mode-btn").addEventListener("click", () => (color = "black"));
-	document.querySelector("#eraser-btn").addEventListener("click", () => (color = "white"));
+	document.querySelector("#color-mode-btn").addEventListener("click", () => {
+		color = "black";
+		rainbowMode = false;
+	});
+	document.querySelector("#rainbow-mode-btn").addEventListener("click", () => (rainbowMode = true));
+	document.querySelector("#eraser-btn").addEventListener("click", () => {
+		color = "white";
+		rainbowMode = false;
+	});
 	document.querySelector("#clear-btn").addEventListener("click", () => {
 		document.querySelectorAll(".grid-container div").forEach((item) => {
 			item.style.backgroundColor = "white";
@@ -65,10 +79,12 @@ function addGridListeners() {
 		});
 		item.addEventListener("mouseover", () => {
 			if (mouseDown) {
+				if (rainbowMode) color = "#" + (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6);
 				item.style.backgroundColor = color;
 			}
 		});
 		item.addEventListener("mousedown", () => {
+			if (rainbowMode) color = (Math.random() * 0xfffff * 1000000).toString(16);
 			item.style.backgroundColor = color;
 		});
 	});
