@@ -9,18 +9,21 @@ addSliderListener();
 
 function addSliderListener() {
 	document.querySelector(".slider").addEventListener("input", (e) => {
-		changeGridSize(Math.pow(e.target.value, 2));
-		console.log(Math.pow(e.target.value, 2));
+		
 	});
-	document.querySelector(".slider").addEventListener("mouseup", (e) => addGridListeners());
+	document.querySelector(".slider").addEventListener("mouseup", (e) => {
+		changeGridSize(Math.pow(e.target.value, 2));
+		addGridListeners();
+	});
 }
 
 function changeGridSize(selectedSize) {
 	let grid = document.querySelector(".grid-container");
 	grid.innerHTML = "";
-	for (let i = 0; i < selectedSize ; i++) {
+	for (let i = 0; i < selectedSize; i++) {
 		grid.append(document.createElement("div"));
 	}
+
 	let length = Math.sqrt(selectedSize);
 	grid.style.gridTemplateRows = `repeat(${length}, 0px)`;
 	grid.style.gridTemplateColumns = `repeat(${length}, 0px)`;
