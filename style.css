@@ -90,3 +90,17 @@ button.selected {
 	background: #04aa6d;
 	cursor: pointer;
 }
+
+.color-palette {
+	
+	width: 100px;
+	height: 100px;
+	padding: 0px;
+	border-width: 0px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.color-palette::-webkit-color-swatch {
+	border-radius: 50%;
+}
