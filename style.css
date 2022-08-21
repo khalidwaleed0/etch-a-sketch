@@ -40,6 +40,10 @@ h1 {
 	justify-content: space-evenly;
 }
 
+.container-for-flex-balance-only {
+	width: 150px;
+}
+
 button {
 	border-radius: 5px;
 	border-width: 1px;
