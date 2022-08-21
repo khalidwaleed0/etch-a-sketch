@@ -3,6 +3,7 @@ let color = "black";
 let rainbowMode = false;
 const sliderValue = document.querySelector("p");
 const slider = document.querySelector(".slider");
+const colorPalette = document.querySelector(".color-palette");
 document.body.onmousedown = () => (mouseDown = 1);
 document.body.onmouseup = () => (mouseDown = 0);
 addGridListeners();
@@ -12,7 +13,6 @@ addSliderListener();
 addColorPaletteListener();
 
 function addColorPaletteListener() {
-	let colorPalette = document.querySelector(".color-palette");
 	colorPalette.addEventListener("input", (e) => (color = e.target.value));
 }
 
@@ -46,7 +46,7 @@ function changeGridSize(selectedSize) {
 
 function addButtonListeners() {
 	document.querySelector("#color-mode-btn").addEventListener("click", () => {
-		color = "black";
+		color = colorPalette.value;
 		rainbowMode = false;
 	});
 	document.querySelector("#rainbow-mode-btn").addEventListener("click", () => (rainbowMode = true));
