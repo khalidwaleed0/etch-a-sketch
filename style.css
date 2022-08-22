@@ -25,6 +25,7 @@ h1 {
 	align-items: center;
 	justify-content: center;
 	align-content: center;
+	box-shadow: rgb(0 0 0 /25%) 0px 3px 8px;
 }
 
 .grid-container div {
@@ -96,7 +97,6 @@ button.selected {
 }
 
 .color-palette {
-	
 	width: 100px;
 	height: 100px;
 	padding: 0px;
