@@ -45,16 +45,16 @@ function changeGridSize(selectedSize) {
 }
 
 function addButtonListeners() {
-	document.querySelector("#color-mode-btn").addEventListener("click", () => {
+	document.querySelector("#color-mode-btn").addEventListener("mousedown", () => {
 		color = colorPalette.value;
 		rainbowMode = false;
 	});
-	document.querySelector("#rainbow-mode-btn").addEventListener("click", () => (rainbowMode = true));
-	document.querySelector("#eraser-btn").addEventListener("click", () => {
+	document.querySelector("#rainbow-mode-btn").addEventListener("mousedown", () => (rainbowMode = true));
+	document.querySelector("#eraser-btn").addEventListener("mousedown", () => {
 		color = "white";
 		rainbowMode = false;
 	});
-	document.querySelector("#clear-btn").addEventListener("click", () => {
+	document.querySelector("#clear-btn").addEventListener("mousedown", () => {
 		document.querySelectorAll(".grid-container div").forEach((item) => {
 			item.style.backgroundColor = "white";
 		});
@@ -64,7 +64,7 @@ function addButtonListeners() {
 function addButtonSelectionEffect() {
 	const drawingButtons = document.querySelectorAll("button:not(button[id='clear-btn'])");
 	drawingButtons.forEach((item) => {
-		item.addEventListener("click", (e) => {
+		item.addEventListener("mousedown", (e) => {
 			drawingButtons.forEach((oldItem) => oldItem.classList.remove("selected"));
 			e.target.classList.add("selected");
 		});
